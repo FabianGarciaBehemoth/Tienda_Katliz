@@ -1,77 +1,301 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
 
-header {
-    background-image: url('Img/FONDOPAGINA.jpg'); /* Imagen de fondo para el banner */
-    background-size: cover; /* Asegura que la imagen cubra todo el header */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    color: white;
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
+    header {
+        background-image: url('Img/FONDOPAGINA.jpg'); /* Imagen de fondo para el banner */
+        background-size: cover; /* Asegura que la imagen cubra todo el header */
+        background-position: center; /* Centra la imagen */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
 
 
-/* Estilo de la galería de productos */
-.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px;
-}
+    /* Estilo de la galería de productos */
+    .catalogo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 10px;
+    }
 
-.producto {
-    width: 100%;
-    max-width: 180px;
-    padding: 10px;
-    background-color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid #b30000;
-}
+    .producto {
+        width: 100%;
+        max-width: 180px;
+        padding: 10px;
+        background-color: white;
+        font-size: 16px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid #b30000;
+    }
 
-.producto img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 5px;
-}
+    .producto img {
+        width: 100%;
+        max-height: 180px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
-/* Estilos para el botón de WhatsApp */
-.whatsapp-btn {
-    display: inline-block;
-    margin-top: 5px;
-    padding: 8px 12px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
+    /* Estilos para el botón de WhatsApp */
+    .whatsapp-btn {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 8px 12px;
+        background-color: #25D366;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: 0.3s ease;
+    }
 
-.whatsapp-btn:hover {
-    background-color: #1ebe57;
-}
+    .whatsapp-btn:hover {
+        background-color: #1ebe57;
+    }
 
-/* Lightbox */
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        .catalogo {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .producto {
+            max-width: 140px;
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        .producto img {
+            max-height: 140px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .catalogo {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px;
+            gap: 20px;
+        }
+    }
+
+    /* Fondo semitransparente para mejorar visibilidad del texto */
+    section h2, .producto p {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 8px;
+        border-radius: 5px;
+        color: #b30000;
+        font-size: 14px;
+    }
+
+    /* Para los productos */
+    .ver-imagen {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 8px;
+        border-radius: 50%;
+        font-size: 24px;
+        display: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .producto:hover .ver-imagen {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .ver-imagen i {
+        transition: transform 0.3s ease;
+    }
+
+    .producto:hover .ver-imagen i {
+        transform: scale(1.2);
+    }
+
+    /* Estilos para la imagen de la rifa */
+    .rifa img {
+        width: 100%;
+        max-width: 70px;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        display: block;
+        border: 2px solid #b30000;
+        padding: 5px;
+    }
+
+    /* Responsividad para la imagen en pantallas pequeñas */
+    @media (max-width: 768px) {
+        .rifa img {
+            max-width: 50%;
+            margin-top: 10px;
+        }
+    }
+
+    /* Estilos para el contenedor del carrusel */
+    /* Estilos para el contenedor del banner */
+    .banner {
+        position: relative;
+        width: 100%;  /* Asegura que el fondo cubra toda la pantalla */
+        max-width: none;
+        height: auto; /* Ajusta la altura según el contenido */
+        background-image: url('Img/FONDOBANNER.png'); /* Imagen de fondo */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 20px 0; /* Espaciado arriba y abajo */
+    }
+
+
+    /* Contenedor del carrusel */
+    .carousel-container {
+        width: 70%;  /* Mantiene el tamaño original del carrusel */
+        max-width: 750px;  
+        margin: 0 auto; /* Centrar el carrusel */
+        overflow: hidden;
+    }
+    .carousel-container {
+        padding-top: 30px; /* Espaciado interno arriba */
+    }
+
+
+    /* Estilos para las imágenes del carrusel */
+    .carousel {
+        display: flex;
+        transition: transform 4s ease-in-out;
+    }
+
+    .carousel-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    /* Estilos para los botones del carrusel */
+    .carousel-button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        border-radius: 50%;
+    }
+
+    .carousel-button.prev {
+        left: 10px;
+    }
+
+    .carousel-button.next {
+        right: 10px;
+    }
+
+    .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Asegurar que los botones estén dentro del contenedor y en tamaños adecuados */
+    @media (min-width: 1024px) {
+        .carousel-container {
+            max-width: 90%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            width: auto;
+            height: 400px;
+            object-fit: cover;
+            flex-shrink: 0; /* Evita que las imágenes se reduzcan */
+        }
+
+        /* Botones de navegación */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .carousel-btn.left {
+            left: 10px;
+        }
+
+        .carousel-btn.right {
+            right: 10px;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    .footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        padding: 15px 10px;
+        margin-top: 20px;
+    }
+
+    .footer a {
+        color: #ff4081;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Lightbox (Versión optimizada) */
 .lightbox {
     display: none;
     position: fixed;
@@ -82,14 +306,14 @@ header {
     background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
     padding: 10px;
 }
 
 .lightbox-content {
-    width: 90%;
-    max-width: 400px;
-    max-height: 90vh;
     position: relative;
+    max-width: 90%;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,33 +321,33 @@ header {
 }
 
 .lightbox img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
     max-height: 80vh;
-    border-radius: 5px;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 .close {
     position: absolute;
     top: 10px;
     right: 20px;
-    color: white;
     font-size: 30px;
+    color: white;
     cursor: pointer;
 }
 
-/* Botones de navegación en el Lightbox */
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    padding: 10px;
+    color: white;
     cursor: pointer;
-    font-size: 20px;
+    padding: 10px;
     border-radius: 50%;
+    transition: background 0.3s ease;
 }
 
 .prev {
@@ -134,225 +358,7 @@ header {
     right: 10px;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .producto {
-        max-width: 140px;
-        font-size: 14px;
-        padding: 5px;
-    }
-
-    .producto img {
-        max-height: 140px;
-    }
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.7);
 }
 
-@media (min-width: 1024px) {
-    .catalogo {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        max-width: 1200px;
-        gap: 20px;
-    }
-}
-
-/* Fondo semitransparente para mejorar visibilidad del texto */
-section h2, .producto p {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 8px;
-    border-radius: 5px;
-    color: #b30000;
-    font-size: 14px;
-}
-
-/* Para los productos */
-.ver-imagen {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 8px;
-    border-radius: 50%;
-    font-size: 24px;
-    display: none;
-    transition: background-color 0.3s ease;
-}
-
-.producto:hover .ver-imagen {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.ver-imagen i {
-    transition: transform 0.3s ease;
-}
-
-.producto:hover .ver-imagen i {
-    transform: scale(1.2);
-}
-
-/* Estilos para la imagen de la rifa */
-.rifa img {
-    width: 100%;
-    max-width: 70px;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-    display: block;
-    border: 2px solid #b30000;
-    padding: 5px;
-}
-
-/* Responsividad para la imagen en pantallas pequeñas */
-@media (max-width: 768px) {
-    .rifa img {
-        max-width: 50%;
-        margin-top: 10px;
-    }
-}
-
-/* Estilos para el contenedor del carrusel */
-/* Estilos para el contenedor del banner */
-.banner {
-    position: relative;
-    width: 100%;  /* Asegura que el fondo cubra toda la pantalla */
-    max-width: none;
-    height: auto; /* Ajusta la altura según el contenido */
-    background-image: url('Img/FONDOBANNER.png'); /* Imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px 0; /* Espaciado arriba y abajo */
-}
-
-
-/* Contenedor del carrusel */
-.carousel-container {
-    width: 70%;  /* Mantiene el tamaño original del carrusel */
-    max-width: 750px;  
-    margin: 0 auto; /* Centrar el carrusel */
-    overflow: hidden;
-}
-.carousel-container {
-    padding-top: 30px; /* Espaciado interno arriba */
-}
-
-
-/* Estilos para las imágenes del carrusel */
-.carousel {
-    display: flex;
-    transition: transform 4s ease-in-out;
-}
-
-.carousel-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-/* Estilos para los botones del carrusel */
-.carousel-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    border-radius: 50%;
-}
-
-.carousel-button.prev {
-    left: 10px;
-}
-
-.carousel-button.next {
-    right: 10px;
-}
-
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Asegurar que los botones estén dentro del contenedor y en tamaños adecuados */
-@media (min-width: 1024px) {
-    .carousel-container {
-        max-width: 90%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .carousel {
-        display: flex;
-        gap: 10px;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-image {
-        width: auto;
-        height: 400px;
-        object-fit: cover;
-        flex-shrink: 0; /* Evita que las imágenes se reduzcan */
-    }
-
-    /* Botones de navegación */
-    .carousel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 24px;
-        border-radius: 50%;
-        z-index: 10;
-    }
-
-    .carousel-btn.left {
-        left: 10px;
-    }
-
-    .carousel-btn.right {
-        right: 10px;
-    }
-
-    .carousel-btn:hover {
-        background: rgba(0, 0, 0, 0.7);
-    }
-}
-
-.footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 15px 10px;
-    margin-top: 20px;
-}
-
-.footer a {
-    color: #ff4081;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}

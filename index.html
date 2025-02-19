@@ -40,20 +40,21 @@
         <div class="catalogo">
             <div class="producto">
                 <div class="imagen-producto">
-                    <img src="Img/Pijamas/Betty_Boop/IMG_3135.JPG" alt="Pijama Betty Boop">
-                    <a href="#" class="ver-imagen">
-                        <i class="fas fa-search-plus"></i> <!-- Ícono de lupa -->
-                    </a>
+                    <img src="Img/Pijamas/Betty_Boop/IMG_3135.JPG" 
+                     alt="Pijama Betty Boop" 
+                     data-folder="Img/Pijamas/Betty_Boop"
+                     data-images="IMG_3135.JPG,IMG_3136.JPG">
                 </div>
                 <p>Pijama Betty Boop - $30.000</p>
                 <a href="https://wa.me/573192641000?text=Hola,%20Estoy%20interesado(a)%20en%20el%20producto%20Pijama%20Betty%20Boop" class="whatsapp-btn">Comprar por WhatsApp</a>
             </div>
+    
             <div class="producto">
                 <div class="imagen-producto">
-                    <img src="Img/Pijamas/Gatitos/IMG_3131.JPG" alt="Pijama Gatitos">
-                    <a href="#" class="ver-imagen">
-                        <i class="fas fa-search-plus"></i> <!-- Ícono de lupa -->
-                    </a>
+                    <img src="Img/Pijamas/Gatitos/IMG_3131.JPG" 
+                     alt="Pijama Gatitos" 
+                     data-folder="Img/Pijamas/Gatitos"
+                     data-images="IMG_3131.JPG,IMG_3132.JPG">
                 </div>
                 <p>Pijama Gatitos - $30.000</p>
                 <a href="https://wa.me/573192641000?text=Hola,%20Estoy%20interesado(a)%20en%20el%20producto%20Pijama%20Gatitos" class="whatsapp-btn">Comprar por WhatsApp</a>
@@ -66,25 +67,40 @@
         <div class="catalogo">
             <div class="producto">
                 <div class="imagen-producto">
-                    <img src="Img/Lenceria/Conjunto_2_piezas_Negro/IMG_3124.JPG" alt="Conjunto 2 piezas Negro">
-                    <a href="#" class="ver-imagen">
-                        <i class="fas fa-search-plus"></i> <!-- Ícono de lupa -->
-                    </a>
+                    <img src="Img/Lenceria/Conjunto_2_piezas_Negro/IMG_3124.JPG" 
+                     alt="Conjunto 2 piezas Negro" 
+                     data-folder="Img/Lenceria/Conjunto_2_piezas_Negro"
+                     data-images="IMG_3124.JPG,IMG_3125.JPG,IMG_3126.JPG,IMG_3127.JPG">
                 </div>
                 <p>Conjunto 2 piezas (Negro) - $30.000</p>
                 <a href="https://wa.me/573192641000?text=Hola,%20Estoy%20interesado(a)%20en%20el%20producto%20Conjunto%202%20piezas%20Negro" class="whatsapp-btn">Comprar por WhatsApp</a>
             </div>
+    
             <div class="producto">
                 <div class="imagen-producto">
-                    <img src="Img/Lenceria/Enterizo_Rojo/IMG_3107.JPG" alt="Enterizo Rojo">
-                    <a href="#" class="ver-imagen">
-                        <i class="fas fa-search-plus"></i> <!-- Ícono de lupa -->
-                    </a>
+                    <img src="Img/Lenceria/Enterizo_Rojo/IMG_3107.JPG" 
+                     alt="Enterizo Rojo" 
+                     data-folder="Img/Lenceria/Enterizo_Rojo"
+                     data-images="IMG_3107.JPG,IMG_3108.JPG,IMG_3109.JPG">
                 </div>
                 <p>Enterizo Rojo - $30.000</p>
                 <a href="https://wa.me/573192641000?text=Hola,%20Estoy%20interesado(a)%20en%20el%20producto%20Enterizo%20Rojo" class="whatsapp-btn">Comprar por WhatsApp</a>
             </div>
+
+            <div class="producto">
+                <div class="imagen-producto">
+                    <img src="Img\Lenceria\Baby_Doll\IMG_3108.JPG" 
+                     alt="Baby Doll" 
+                     data-folder="Img\Lenceria\Baby_Doll\"
+                     data-images="IMG_3107.JPG,IMG_3108.JPG,IMG_3109.JPG">
+                </div>
+                <p>Baby Doll Rojo - $30.000</p>
+                <a href="https://wa.me/573192641000?text=Hola,%20Estoy%20interesado(a)%20en%20el%20producto%20Baby Doll%20Rojo" class="whatsapp-btn">Comprar por WhatsApp</a>
+            </div>
+
         </div>
+    </section>
+    
     </section>
     
     <section class="rifa">
@@ -96,16 +112,6 @@
         <img src="Img/Rifa/IMG_3158.JPG" alt="Rifa">
     </section>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-        <div class="lightbox-content">
-            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-            <img id="lightbox-img" src="" alt="Producto">
-            <button class="next" onclick="changeImage(1)">&#10095;</button>
-        </div>
-    </div>
-    <script src="carrusel.js"></script> 
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Katliz - Tienda Virtual. Todos los derechos reservados.</p>
@@ -113,6 +119,17 @@
             <p>Contacto: <a href="tel:+573192641000">319 264 1000</a></p>
         </div>
     </footer>
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+            <img id="lightbox-img" src="" alt="Imagen del producto">
+            <button class="next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
     
+    <script src="carrusel.js"></script> 
+    <script src="./lightbox.js"></script>
+
 </body>
 </html>
