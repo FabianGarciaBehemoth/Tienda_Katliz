@@ -1,5 +1,5 @@
     body {
-        font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif ;
         background-color: #f0f0f0;
         background-size: cover;
         background-position: center center;
@@ -10,16 +10,53 @@
         padding: 0;
     }
 
-    header {
-        background-image: url('Img/FONDOPAGINA.jpg'); /* Imagen de fondo para el banner */
-        background-size: cover; /* Asegura que la imagen cubra todo el header */
-        background-position: center; /* Centra la imagen */
-        background-repeat: no-repeat; /* Evita que la imagen se repita */
-        color: white;
-        padding: 20px;
-        font-size: 24px;
-        font-weight: bold;
+header {
+    height: 120px;
+    font-family: 'DynaPuff', system-ui;  
+    font-weight: 400;  
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 120px;
+
+    /* Gradiente vino tinto combinando con el banner */
+    background: linear-gradient(90deg,
+        #3a0f15,
+        #63171d,
+        #84292d,
+        #af6265,
+        #8b1f24,
+        #63171d,
+        #3a0f15
+    );
+
+    background-size: 600% 600%;
+
+    /* Despliegue inicial desde el centro */
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    
+    /* Animaciones */
+    animation: unfold 1s forwards, gradientMove 12s ease-in-out infinite;
+}
+
+/* Efecto de despliegue desde el centro hacia los lados */
+@keyframes unfold {
+    0% {
+        clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
     }
+    100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+/* Movimiento continuo del gradiente */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
 
 
     /* Estilo de la galería de productos */
@@ -159,17 +196,36 @@
 
     /* Estilos para el contenedor del carrusel */
     /* Estilos para el contenedor del banner */
-    .banner {
-        position: relative;
-        width: 100%;  /* Asegura que el fondo cubra toda la pantalla */
-        max-width: none;
-        height: auto; /* Ajusta la altura según el contenido */
-        background-image: url('Img/FONDOBANNER.png'); /* Imagen de fondo */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 20px 0; /* Espaciado arriba y abajo */
-    }
+.banner {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    height: auto;
+
+    /* Gradiente elegante vino tinto */
+ background: linear-gradient(90deg,
+        #3a0f15,
+        #63171d,
+        #84292d,
+        #af6265,
+        #8b1f24,
+        #63171d,
+        #3a0f15
+    );
+
+    background-size: 600% 600%;
+    animation: bannerMove 14s ease-in-out infinite;
+
+    padding: 20px 0;
+}
+
+/* Movimiento suave horizontal */
+@keyframes bannerMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 
     /* Contenedor del carrusel */
@@ -362,3 +418,141 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
+/* ---------------------------------------------------
+   SECCIÓN SERVICIOS
+--------------------------------------------------- */
+
+.servicios {
+    padding: 20px;
+    background: #fff;
+}
+
+.servicios h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+/* Tarjeta de cada servicio */
+.servicio-card {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.servicio-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.servicio-desc {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* ---------------------------------------------------
+   CARRUSEL DE SERVICIOS
+--------------------------------------------------- */
+
+.svc-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.svc-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.svc-track img {
+    width: 100%;
+    height: 350px; /* altura base en móviles */
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 12px;
+}
+
+/* Botones del carrusel */
+.svc-prev,
+.svc-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.svc-prev:hover,
+.svc-next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.svc-prev {
+    left: 12px;
+}
+
+.svc-next {
+    right: 12px;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE GRID DE SERVICIOS
+--------------------------------------------------- */
+
+/* Pantallas medianas: 2 columnas */
+@media (min-width: 600px) and (max-width: 899px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .servicios > h2 {
+        grid-column: 1 / -1;
+    }
+
+    .svc-track img {
+        height: 400px; /* más alto que móvil */
+    }
+}
+
+/* Pantallas grandes: 3 columnas */
+@media (min-width: 900px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .servicios > h2 {
+        grid-column: 1 / -1;
+    }
+
+    .svc-track img {
+        height: 450px; /* altura más vertical para PC */
+    }
+}
+
+
+/* Header responsive para celulares */
+@media (max-width: 600px) {
+    header {
+        font-size: 1rem;          /* Reduce el tamaño del texto */
+        line-height: 1.3;        /* Permite que se acomode en más de una línea */
+        height: auto;            /* Ajusta la altura según el contenido */
+        padding: 20px 10px;      /* Da aire en los bordes */
+        text-align: center;      /* Centrado */
+        white-space: normal;     /* Permite que el texto baje a segunda línea */
+    }
+}
